@@ -131,21 +131,24 @@ algorithms, and so generated different `sha1`s than the latest version. You can
 simulate those version via the `--git` flag. Use `<1.8.2` or `<2.8.0` depending
 on which version of `git subtree split` you want to simulate.
 
-Manual Installation
+Manual Installation (linux-amd64)
 -------------------
 
 If you want to contribute to `splitsh-lite` or use it as a library, you first
 need to install `libgit2`:
 
 ```bash
-brew install libgit2@1.5
+go get -d github.com/libgit2/git2go
+cd $GOPATH/src/github.com/libgit2/git2go
+git checkout next
+git submodule update --init
+make install
 ```
 
 Then, compile `splitsh-lite`:
 
 ```bash
-go install github.com/splitsh/lite
-
+go get github.com/splitsh/lite
 go build -o splitsh-lite github.com/splitsh/lite
 ```
 
@@ -154,7 +157,7 @@ current directory.
 
 [1]: https://github.com/splitsh/lite/releases
 
+Manual Installation (darwin-arm64)
+-------------------
 
-export PATH="/usr/local/opt/libgit2@1.5/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/libgit2@1.5/lib"
-export CPPFLAGS="-I/usr/local/opt/libgit2@1.5/include"
+View the [Makefile](Makefile), which is a copy from [https://github.com/saymedia/jobsworth/blob/master/Makefile](https://github.com/saymedia/jobsworth/blob/dcdda65ddb2985b2834afa40df1a5da965028fbd/Makefile)
