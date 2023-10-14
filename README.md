@@ -34,11 +34,13 @@ a monorepo, use the [tomono](https://github.com/unravelin/tomono) tool.
 Installation
 ------------
 
-The fastest way to get started is to download a [binary][1] for your platform
+The fastest way to get started is to download a [binary][1] (linux-amd64) or [binary][2] (darwin-arm64) for your platform
 and unarchive it with:
 
 ```bash
 sudo tar -zxpf lite_linux_amd64.tar.gz --directory /usr/local/bin/
+
+sudo tar -zxpf lite_Darwin_arm64.tar.gz --directory /usr/local/bin/
 ```
 
 You can also [install it manually](#manual-installation).
@@ -156,6 +158,7 @@ If everything goes fine, a `splitsh-lite` binary should be available in the
 current directory.
 
 [1]: https://github.com/splitsh/lite/releases
+[2]: https://github.com/Rud5G/lite/releases
 
 Manual Installation (darwin-arm64)
 -------------------
