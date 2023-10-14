@@ -4,7 +4,6 @@
 # https://github.com/goreleaser/goreleaser/blob/v1.9.2/www/docs/ci/actions.md
 name: test, release-dry-run
 on:
-  push:
   pull_request:
 
 jobs:
