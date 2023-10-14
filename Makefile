@@ -60,6 +60,7 @@ release:
 		--rm \
 		--env=CGO_ENABLED=1 \
 		--env=GITHUB_TOKEN \
+		-v /var/run/docker.sock:/var/run/docker.sock \
 		-v `pwd`:/go/src/${PACKAGE_NAME} \
 		-v `pwd`/sysroot:/sysroot \
 		-w /go/src/${PACKAGE_NAME} \
@@ -95,5 +96,5 @@ ${LIBGIT2_STATIC_BUILD_DIR}/install/lib/libgit2.a:
 .PHONY: clean
 clean:
 	rm -rf ${LIBGIT2_STATIC_BUILD_DIR}/build
-	rm -f dist/splitsh-lite
+	rm -f dist/*
 	go clean -cache # otherwise cgo doesn't know to rebuild git2go
