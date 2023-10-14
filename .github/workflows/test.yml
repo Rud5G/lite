@@ -5,9 +5,7 @@
 name: Create GitHub Release
 on:
   push:
-    # run only against tags
-    tags:
-      - '*'
+  pull_request:
 
 jobs:
   goreleaser:
