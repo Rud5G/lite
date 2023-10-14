@@ -1,1 +1,5 @@
 splitter-lite-tests/
+
+dist/
+
+.idea/

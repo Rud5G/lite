@@ -138,17 +138,14 @@ If you want to contribute to `splitsh-lite` or use it as a library, you first
 need to install `libgit2`:
 
 ```bash
-go get -d github.com/libgit2/git2go
-cd $GOPATH/src/github.com/libgit2/git2go
-git checkout next
-git submodule update --init
-make install
+brew install libgit2@1.5
 ```
 
 Then, compile `splitsh-lite`:
 
 ```bash
-go get github.com/splitsh/lite
+go install github.com/splitsh/lite
+
 go build -o splitsh-lite github.com/splitsh/lite
 ```
 
@@ -156,3 +153,8 @@ If everything goes fine, a `splitsh-lite` binary should be available in the
 current directory.
 
 [1]: https://github.com/splitsh/lite/releases
+
+
+export PATH="/usr/local/opt/libgit2@1.5/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/libgit2@1.5/lib"
+export CPPFLAGS="-I/usr/local/opt/libgit2@1.5/include"
