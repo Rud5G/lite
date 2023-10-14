@@ -13,7 +13,7 @@ jobs:
   goreleaser:
     # available runners:
     # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     permissions:
       contents: write # for creating release
     steps:
