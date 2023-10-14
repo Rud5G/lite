@@ -1,0 +1,28 @@
+# This action publishes a package after you push a tag
+# See goreleaser documentation
+# https://goreleaser.com/ci/actions/
+# https://github.com/goreleaser/goreleaser/blob/v1.9.2/www/docs/ci/actions.md
+name: Create GitHub Release
+on:
+  push:
+  pull_request:
+
+jobs:
+  goreleaser:
+    # available runners:
+    # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write # for creating release
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # git fetch all branches instead of just the ref, and no --depth=1
+          # required for goreleaser build unless you use --snapshot or --skip-validate
+          fetch-depth: 0
+          submodules: recursive
+      - name: Fetch all tags
+        # this is needed if you use TagBody, TagSubject or TagContents in your template
+        run: git fetch --force --tags
+      - name: release-dry-run
+        run: make release-dry-run
